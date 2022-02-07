@@ -1,0 +1,21 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: authorization-server
+  cloud:
+    nacos:
+      username: nacos
+      password: chl252599
+      discovery:
+        server-addr: nacos-server:8848
+        namespace: a4d2f221-747a-4cf9-a117-add975aef711
+  redis:
+    host: 82.157.191.65
+    password: chl252599
+    port: 6380
+  datasource:
+    url: jdbc:mysql://82.157.191.65:3600/coin_exchange?useSSL=false&serverTimezon=GMT%28
+    username: root
+    password: chl252599
+    driver-class-name: com.mysql.cj.jdbc.Driver
