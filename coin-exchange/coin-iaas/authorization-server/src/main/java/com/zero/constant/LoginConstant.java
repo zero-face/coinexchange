@@ -46,4 +46,5 @@ public class LoginConstant {
     public static final String QUERY_ADMIN_USER_WITH_ID = "select username from sys_user where id = ?";
 
     public static final String QUERY_MEMBER_USER_WITH_ID = "select mobile from user where id = ?";
+
 }

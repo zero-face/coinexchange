@@ -72,5 +72,4 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenEnhancer(jwtAccessTokenConverter);
         super.configure(endpoints);
     }
-
 }

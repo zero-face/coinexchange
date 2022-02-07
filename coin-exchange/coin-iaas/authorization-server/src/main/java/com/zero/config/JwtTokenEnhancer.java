@@ -16,6 +16,7 @@ import java.util.Map;
  * @Description jwt内容增强器
  **/
 public class JwtTokenEnhancer implements TokenEnhancer {
+
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         Map<String, Object> info = new HashMap<>();

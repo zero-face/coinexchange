@@ -34,13 +34,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        final InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
-//        User user = new User("admin", "$2a$10$iiLRd7/VVqEUhyGrDczhFeEUSDhWJ6rmmhT37OTx2EsANq9qtBvnu", Arrays.asList(new SimpleGrantedAuthority("ROLE_Admin")));
-//        inMemoryUserDetailsManager.createUser(user);
-//        return inMemoryUserDetailsManager;
-//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
