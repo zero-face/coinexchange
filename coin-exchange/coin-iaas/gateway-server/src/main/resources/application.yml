@@ -1,0 +1,71 @@
+
+spring:
+  application:
+    name: gateway-server
+  redis:
+    host: 82.157.191.65
+    password: chl252599
+    port: 6380
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-server:8848
+        namespace: a4d2f221-747a-4cf9-a117-add975aef711
+        group: zero_group
+      username: nacos
+      password: chl252599
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          lower-case-service-id: true
+      routes:
+        - id: admin-service_router #路由的id，没有固定规则，但是要求唯一，建议配合服务名
+          uri: lb://admin-service
+          predicates:
+            - Path=/admin/**
+        - id: test_router
+          uri: http://www.aliyun.com
+          predicates:
+            - Path=/product
+        - id: payment-routh2
+          uri: https://www.baidu.com/
+          predicates:
+            - Path=/te
+      # 通过网关对两种模式的微服务进行限流：1.是以微服务为基本单位，进行单个微服务限流。2.是以url组为单位，进行url组粒度的限流，url可以不在一个微服务
+#    sentinel:
+#      datasource:
+#        ds1.file:
+#          file: classthpath:gw-flow.json
+#          gw_flow
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+      datasource:
+        ds1:
+          nacos: #api分组文件nacos:
+            namespace: a4d2f221-747a-4cf9-a117-add975aef711
+            serverAddr: nacos-server:8848 #保存到nacos地址
+            dataId: gw-flow #配置名
+            groupId: DEFAULT_GROUP #默认分组
+            data-type: json #文件类型
+            rule-type: gw_flow #规则类型
+        ds2:
+          nacos: #网关限流规则
+            namespace: a4d2f221-747a-4cf9-a117-add975aef711
+            serverAddr: nacos-server:8848 #保存到nacos地址
+            dataId: api-group #配置名
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: gw_api_group
+            accessKey: nacos
+            secretKey: chl252599
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 80
