@@ -149,4 +149,5 @@ public class UserDetailServiceImpl implements UserDetailsService {
                 .map(perm -> new SimpleGrantedAuthority(perm))
                 .collect(Collectors.toSet());
     }
+
 }

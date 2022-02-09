@@ -17,6 +17,11 @@ import java.security.Principal;
 @RestController
 public class UserInfoController {
 
+    /**
+     * 获取率用户信息
+     * @param principal
+     * @return
+     */
     @GetMapping("/user/info")
     public Principal userInfo(Principal principal) {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
