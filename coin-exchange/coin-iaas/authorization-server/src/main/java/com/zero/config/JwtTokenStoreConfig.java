@@ -9,7 +9,7 @@ import org.springframework.security.rsa.crypto.KeyStoreKeyFactory;
 /**
  * @author Zero
  * @date 2022/2/7 18:18
- * @description
+ * @description jwt
  * @since 1.8
  **/
 @Configuration

@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 /**
  * @author Zero
  * @date 2022/2/7 15:35
- * @description
+ * @description 授权服务器
  * @since 1.8
  **/
 @EnableAuthorizationServer //开启授权服务器的功能
