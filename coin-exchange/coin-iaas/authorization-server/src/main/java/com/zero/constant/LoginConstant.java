@@ -43,8 +43,13 @@ public class LoginConstant {
      */
     public static final String QUERY_MEMBER_SQL= "select `id`, `password`, `status` from user where mobile = ? or email = ?";
 
+    /**
+     * 通过用户id查询用户名
+     */
     public static final String QUERY_ADMIN_USER_WITH_ID = "select username from sys_user where id = ?";
 
+    /**
+     * 根据用户id查询电话号码
+     */
     public static final String QUERY_MEMBER_USER_WITH_ID = "select mobile from user where id = ?";
-
 }
