@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 /**
  * @author Zero
  * @date 2022/2/7 20:35
- * @description
+ * @description token中的username是userId
  * @since 1.8
  **/
 @Service("UserDetail")
@@ -69,15 +69,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
     /**
-     * 纠正用户名
+     * 纠正用户名（将用户id转换为真正的用户名）
      * @param username
      * @return
      */
     private String adjustUsername(String username, String loginType) {
         if(loginType.equals(LoginConstant.ADMIN_TYPE)) {
-
             return jdbcTemplate.queryForObject(LoginConstant.QUERY_ADMIN_USER_WITH_ID, String.class, username);
         }
+
         if(loginType.equals(LoginConstant.MEMBER_TYPE)) {
             return jdbcTemplate.queryForObject(LoginConstant.QUERY_MEMBER_USER_WITH_ID, String.class, username);
         }
@@ -136,9 +136,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
         //超级管理员为所有权限
         List<String> permissions = null;
         String roleCode = jdbcTemplate.queryForObject(LoginConstant.QUERY_ROLE_CODE_SQL, String.class, id);
+        //如果是超级管理员
         if("ROLE_ADMIN".equalsIgnoreCase(roleCode)) {
             permissions = jdbcTemplate.queryForList(LoginConstant.QUERY_ALL_PERMISSIONS, String.class);
-        } else { //普通用户
+        } else {
             permissions = jdbcTemplate.queryForList(LoginConstant.QUERY_PERMISSION_SQL, String.class, id);
         }
         if(permissions == null || permissions.isEmpty()) {

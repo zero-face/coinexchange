@@ -23,7 +23,6 @@ public class TestController {
         return "test success";
     }
 
-
     /**
      * 获取当前系统的限流策略
      * @return
@@ -32,6 +31,7 @@ public class TestController {
     public Set<GatewayFlowRule> getRules() {
         return GatewayRuleManager.getRules();
     }
+
     /**
      * 获取我定义的api分组
      */
