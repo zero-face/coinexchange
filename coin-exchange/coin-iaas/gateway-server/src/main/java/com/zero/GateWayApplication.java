@@ -10,6 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @description
  * @since 1.8
  **/
+
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GateWayApplication {
