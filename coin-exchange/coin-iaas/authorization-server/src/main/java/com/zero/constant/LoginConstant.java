@@ -3,7 +3,7 @@ package com.zero.constant;
 /**
  * @author Zero
  * @date 2022/2/7 20:32
- * @description
+ * @description 登录常量
  * @since 1.8
  **/
 public class LoginConstant {
