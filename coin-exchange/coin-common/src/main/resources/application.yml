@@ -1,0 +1,62 @@
+#server:
+#  port: 8890
+#spring:
+#  application:
+#    name: coin-common
+#  datasource:
+#    url: jdbc:mysql://mysql-server:3600/coin_exchange?useSSL=false&serverTimezon=GMT%28
+#    username: root
+#    password: chl252599
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: nacos-server:8848
+#        namespace: a4d2f221-747a-4cf9-a117-add975aef711
+#        group: zero_group
+#      username: nacos
+#      password: chl252599
+#      config:
+#        enabled: false
+#    sentinel:
+#      transport:
+#        dashboard:
+#  redis:
+#    host: 82.157.191.65
+#    port: 6380
+#    password: chl252599
+#swagger2:
+#  base-package: com.zero.controller
+#  name: zero
+#  url: https://github.com/zero-face
+#  email: 1444171773@qq.com
+#  title: coin-common模型的测试
+#  description: coin-common模型的内部测试
+#  version: 0.o.1
+#  term-of-service-url: Fehead
+#
+#mybatis-plus:
+#  mapper-locations: classpath:/mappers/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#
+#jetcache:
+#  statIntervalMinutes: 15
+#  areaInCacheName: false
+#  local:
+#    default:
+#      type: linkedhashmap
+#      keyConvertor: fastjson
+#  remote:
+#    default:
+#      type: redis
+#      keyConvertor: fastjson
+#      valueEncoder: kryo
+#      valueDecoder: kryo
+#      poolConfig:
+#        minIdle: 5
+#        maxIdle: 20
+#        maxTotal: 50
+#      host: ${spring.redis.host}
+#      port: ${spring.redis.port}
+#      password:  ${spring.redis.password}
